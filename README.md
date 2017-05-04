@@ -2,7 +2,9 @@
 
 Add a traffic toggle control to [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
-![demo](https://raw.githubusercontent.com/lukasmartinelli/mapbox-gl-traffic/master/demo.gif)  
+[**:globe_with_meridians: Check the demo**](http://lukasmartinelli.ch/mapbox-gl-traffic/)
+
+![demo](https://raw.githubusercontent.com/lukasmartinelli/mapbox-gl-traffic/master/demo.gif)
 
 ## Usage
 
@@ -13,15 +15,20 @@ Make sure to include the CSS and JS files.
 **When using a CDN**
 
 ```html
-<script src='http://mapbox-gl-traffic.lukasmartinelli.ch/dist/mapbox-gl-traffic.min.js'></script>
-<link href='http://mapbox-gl-traffic.lukasmartinelli.ch/dist/mapbox-gl-traffic.css' rel='stylesheet' />
+<script src='http://lukasmartinelli.ch/mapbox-gl-traffic/dist/mapbox-gl-traffic.min.js'></script>
+<link href='http://lukasmartinelli.ch/mapbox-gl-traffic/dist/mapbox-gl-traffic.css' rel='stylesheet' />
 ```
 
 ### Add a Toggle
 
-Add the traffic toggle control to your map.
-
 ```javascript
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/traffic-night-v2',
+    center: [-77.0259, 38.9010],
+    zoom: 9,
+    hash: true
+});
 map.addControl(new MapboxTraffic());
 ```
 
