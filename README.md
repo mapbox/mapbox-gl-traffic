@@ -2,6 +2,8 @@
 
 Add an traffic toggle control to [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
+![demo](https://raw.githubusercontent.com/lukasmartinelli/mapbox-gl-traffic/master/demo.gif)  
+
 
 ## Develop
 
