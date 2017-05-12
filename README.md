@@ -1,4 +1,4 @@
-# Mapbox GL Traffic [![Build Status](https://travis-ci.org/lukasmartinelli/mapbox-gl-traffic.svg?branch=master)](https://travis-ci.org/lukasmartinelli/mapbox-gl-traffic)
+# Mapbox GL Traffic [![Build Status](https://travis-ci.org/lukasmartinelli/mapbox-gl-traffic.svg?branch=master)](https://travis-ci.org/lukasmartinelli/mapbox-gl-traffic) [![npm](https://img.shields.io/npm/v/mapbox-gl-traffic.svg)](https://www.npmjs.com/package/mapbox-gl-traffic)
 
 Add a traffic toggle control to [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
@@ -12,6 +12,27 @@ Add a traffic toggle control to [Mapbox GL JS](https://github.com/mapbox/mapbox-
 
 Make sure to include the CSS and JS files.
 
+**When using NPM**
+
+Check [how to use Mapbox GL JS in a module bundler](https://www.mapbox.com/mapbox-gl-js/api/).
+
+```bash
+npm install --save mapbox-gl
+npm install mapbox-gl-traffic --save
+```
+
+```javascript
+const mapboxgl = require('mapbox-gl')
+const MapboxTraffic = require('mapbox-gl-traffic');
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/traffic-night-v2',
+    center: [-77.0259, 38.9010],
+    zoom: 9
+});
+map.addControl(new MapboxTraffic());
+```
+
 **When using a CDN**
 
 ```html
@@ -24,8 +45,7 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/traffic-night-v2',
     center: [-77.0259, 38.9010],
-    zoom: 9,
-    hash: true
+    zoom: 9
 });
 map.addControl(new MapboxTraffic());
 ```
