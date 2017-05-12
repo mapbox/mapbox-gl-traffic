@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta charset='utf-8' />
-    <title>Mapbox GL Inspect</title>
+    <title>Mapbox GL Traffic</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.31.0/mapbox-gl.css' rel='stylesheet' />
-    <script src='dist/mapbox-gl-traffic.min.js'></script>
+    <script src='dist/mapbox-gl-traffic.js'></script>
     <link href='dist/mapbox-gl-traffic.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
@@ -26,9 +26,7 @@ var map = new mapboxgl.Map({
     hash: true
 });
 map.addControl(new mapboxgl.NavigationControl());
-map.addControl(new MapboxTraffic({
-  showInspectMap: true
-}));
+map.addControl(new MapboxTraffic());
 </script>
 
 </body>
