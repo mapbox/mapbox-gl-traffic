@@ -4,7 +4,7 @@ function MapboxTraffic(options) {
   }
 
   this.options = Object.assign({
-    showTraffic: true,
+    showTraffic: false,
     showTrafficButton: true,
     trafficSource: 'mapbox://mapbox.mapbox-traffic-v1'
   }, options);
@@ -27,8 +27,10 @@ MapboxTraffic.prototype.toggleTraffic = function () {
 MapboxTraffic.prototype.render = function () {
   if (this.options.showTraffic) {
     this._showTraffic();
+    this._toggle.setMapIcon();
   } else {
     this._hideTraffic();
+    this._toggle.setTrafficIcon();
   }
 };
 
@@ -82,7 +84,7 @@ function container(child, show) {
 
 function button() {
   var btn = document.createElement('button');
-  btn.className = 'mapboxgl-ctrl-icon mapboxgl-ctrl-inspect';
+  btn.className = 'mapboxgl-ctrl-icon mapboxgl-ctrl-traffic';
   btn.type = 'button';
   btn['aria-label'] = 'Inspect';
   return btn;
@@ -99,8 +101,8 @@ function TrafficButton(options) {
   this.elem = container(this._btn, options.show);
 }
 
-TrafficButton.prototype.setInspectIcon = function () {
-  this._btn.className = 'mapboxgl-ctrl-icon mapboxgl-ctrl-inspect';
+TrafficButton.prototype.setTrafficIcon = function () {
+  this._btn.className = 'mapboxgl-ctrl-icon mapboxgl-ctrl-traffic';
 };
 
 TrafficButton.prototype.setMapIcon = function () {
