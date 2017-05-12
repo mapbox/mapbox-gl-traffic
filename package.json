@@ -1,13 +1,14 @@
 {
   "name": "mapbox-gl-traffic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mapbox GL JS plugin for enabling/disabling traffic",
   "main": "index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "test": "eslint lib && eslint index.js",
     "watch": "mkdir -p dist && watchify index.js --debug -v --standalone MapboxTraffic -o dist/mapbox-gl-traffic.js",
-    "build": "mkdir -p dist && NODE_ENV=production browserify index.js --standalone MapboxTraffic | uglifyjs - --screw-ie8 --compress --mangle -o dist/mapbox-gl-traffic.min.js",
-    "docs": "documentation build lib/MapboxInspect.js --shallow --format=md > API.md"
+    "build": "mkdir -p dist && NODE_ENV=production browserify index.js --standalone MapboxTraffic -o dist/mapbox-gl-traffic.js",
+    "docs": "documentation build index.js --shallow --format=md > API.md"
   },
   "repository": {
     "type": "git",
@@ -26,8 +27,6 @@
     "url": "https://github.com/lukasmartinelli/mapbox-gl-traffic/issues"
   },
   "homepage": "https://github.com/lukasmartinelli/mapbox-gl-traffic#readme",
-  "dependencies": {
-  },
   "devDependencies": {
     "browserify": "^11.2.0",
     "documentation": "^4.0.0-beta.18",
@@ -37,7 +36,7 @@
     "watchify": "^3.8.0"
   },
   "peerDependencies": {
-    "mapbox-gl": "^0.29.0 || ^0.30.0 || ^0.31.0 || ^0.32.0 || ^0.33.0 || ^0.34.0"
+    "mapbox-gl": "^0.29.0"
   },
   "eslintConfig": {
     "parserOptions": {
