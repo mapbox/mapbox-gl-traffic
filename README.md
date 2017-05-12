@@ -17,8 +17,7 @@ Make sure to include the CSS and JS files.
 Check [how to use Mapbox GL JS in a module bundler](https://www.mapbox.com/mapbox-gl-js/api/).
 
 ```bash
-npm install --save mapbox-gl
-npm install mapbox-gl-traffic --save
+npm install --save mapbox-gl mapbox-gl-traffic
 ```
 
 ```javascript
