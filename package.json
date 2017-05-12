@@ -4,11 +4,11 @@
   "description": "Mapbox GL JS plugin for enabling/disabling traffic",
   "main": "index.js",
   "scripts": {
-    "prepublish": "npm run build",
+    "prepublish": "npm run build && npm run docs",
     "test": "eslint lib && eslint index.js",
     "watch": "mkdir -p dist && watchify index.js --debug -v --standalone MapboxTraffic -o dist/mapbox-gl-traffic.js",
     "build": "mkdir -p dist && NODE_ENV=production browserify index.js --standalone MapboxTraffic -o dist/mapbox-gl-traffic.js",
-    "docs": "documentation build index.js --shallow --format=md > API.md"
+    "docs": "documentation readme index.js --section API"
   },
   "repository": {
     "type": "git",

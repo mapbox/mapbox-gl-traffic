@@ -1,3 +1,11 @@
+/**
+ * Create a new [Mapbox GL JS plugin](https://www.mapbox.com/blog/build-mapbox-gl-js-plugins/) that allows you to hide and show
+ * traffic layers in your map and an optional toggle button.
+ * @constructor
+ * @param {object} options - Options to configure the plugin.
+ * @param {bool} [options.showTraffic=false] - Show or hide traffic overlay by default.
+ * @param {bool} [options.showTrafficButton=true] - Show a toggle button to turn traffic on and off.
+ */
 function MapboxTraffic(options) {
   if (!(this instanceof MapboxTraffic)) {
     throw new Error('MapboxTraffic needs to be called with the new keyword');
