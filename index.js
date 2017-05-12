@@ -3,8 +3,9 @@
  * traffic layers in your map and an optional toggle button.
  * @constructor
  * @param {object} options - Options to configure the plugin.
- * @param {bool} [options.showTraffic=false] - Show or hide traffic overlay by default.
- * @param {bool} [options.showTrafficButton=true] - Show a toggle button to turn traffic on and off.
+ * @param {boolean} [options.showTraffic=false] - Show or hide traffic overlay by default.
+ * @param {boolean} [options.showTrafficButton=true] - Show a toggle button to turn traffic on and off.
+ * @param {RegExp} [options.trafficSource=/mapbox-traffic-v\d/] - The traffic source regex used to determine whether a layer displays traffic or not.
  */
 function MapboxTraffic(options) {
   if (!(this instanceof MapboxTraffic)) {
@@ -14,7 +15,7 @@ function MapboxTraffic(options) {
   this.options = Object.assign({
     showTraffic: false,
     showTrafficButton: true,
-    trafficSource: 'mapbox://mapbox.mapbox-traffic-v1'
+    trafficSource: /mapbox-traffic-v\d/
   }, options);
 
   this.render = this.render.bind(this);
@@ -46,7 +47,7 @@ MapboxTraffic.prototype._hideTraffic = function () {
   var style = this._map.getStyle();
   var source = this.options.trafficSource;
   style.layers.forEach(function (layer) {
-    if (layer['source'] === source) {
+    if (source.test(layer['source'])) {
       layer['layout'] = layer['layout'] || {};
       layer['layout']['visibility'] = 'none';
     }
@@ -58,7 +59,7 @@ MapboxTraffic.prototype._showTraffic = function () {
   var style = this._map.getStyle();
   var source = this.options.trafficSource;
   style.layers.forEach(function (layer) {
-    if (layer['source'] === source) {
+    if (source.test(layer['source'])) {
       layer['layout'] = layer['layout'] || {};
       layer['layout']['visibility'] = 'visible';
     }

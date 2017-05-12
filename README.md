@@ -42,8 +42,9 @@ traffic layers in your map and an optional toggle button.
 **Parameters**
 
 -   `options` **[object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** Options to configure the plugin.
-    -   `options.showTraffic` **bool** Show or hide traffic overlay by default. (optional, default `false`)
-    -   `options.showTrafficButton` **bool** Show a toggle button to turn traffic on and off. (optional, default `true`)
+    -   `options.showTraffic` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Show or hide traffic overlay by default. (optional, default `false`)
+    -   `options.showTrafficButton` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Show a toggle button to turn traffic on and off. (optional, default `true`)
+    -   `options.trafficSource` **[RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)** The traffic source regex used to determine whether a layer displays traffic or not. (optional, default `/mapbox-traffic-v\d/`)
 
 ## Develop
 
