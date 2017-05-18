@@ -4,15 +4,12 @@
   "description": "Mapbox GL JS plugin for enabling/disabling traffic",
   "main": "index.js",
   "scripts": {
-    "prepublish": "npm run build && npm run docs",
     "test": "eslint lib && eslint index.js",
-    "watch": "mkdir -p dist && watchify index.js --debug -v --standalone MapboxTraffic -o dist/mapbox-gl-traffic.js",
-    "build": "mkdir -p dist && NODE_ENV=production browserify index.js --standalone MapboxTraffic -o dist/mapbox-gl-traffic.js",
     "docs": "documentation readme index.js --section API"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukasmartinelli/mapbox-gl-traffic.git"
+    "url": "git+https://github.com/mapbox/mapbox-gl-traffic.git"
   },
   "keywords": [
     "mapbox",
@@ -24,9 +21,9 @@
   "author": "Lukas Martinelli",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/lukasmartinelli/mapbox-gl-traffic/issues"
+    "url": "https://github.com/mapbox/mapbox-gl-traffic/issues"
   },
-  "homepage": "https://github.com/lukasmartinelli/mapbox-gl-traffic#readme",
+  "homepage": "https://github.com/mapbox/mapbox-gl-traffic#readme",
   "devDependencies": {
     "browserify": "^11.2.0",
     "documentation": "^4.0.0-beta.18",
