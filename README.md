@@ -36,6 +36,10 @@ map.addControl(new MapboxTraffic());
 
 - [Mapbox Day Traffic](https://mapbox.github.io/mapbox-gl-traffic/examples/traffic-day.html)
 - [Mapbox Night Traffic](https://mapbox.github.io/mapbox-gl-traffic/examples/traffic-night.html)
+- [Mapbox Streets](https://mapbox.github.io/mapbox-gl-traffic/examples/mapbox-streets.html)
+- [Mapbox Outdoors](https://mapbox.github.io/mapbox-gl-traffic/examples/mapbox-outdoors.html)
+- [Mapbox Light](https://mapbox.github.io/mapbox-gl-traffic/examples/mapbox-light.html)
+- [Mapbox Dark](https://mapbox.github.io/mapbox-gl-traffic/examples/mapbox-dark.html)
 
 ## API
 
