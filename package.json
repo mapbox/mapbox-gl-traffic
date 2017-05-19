@@ -5,7 +5,7 @@
   "main": "mapbox-gl-traffic.js",
   "scripts": {
     "test": "eslint *.js",
-    "docs": "documentation readme index.js --section API"
+    "docs": "documentation readme mapbox-gl-traffic.js --section API"
   },
   "repository": {
     "type": "git",
