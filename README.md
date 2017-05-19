@@ -32,22 +32,10 @@ const map = new mapboxgl.Map({
 map.addControl(new MapboxTraffic());
 ```
 
-**When using a CDN**
+## Examples
 
-```html
-<script src='http://lukasmartinelli.ch/mapbox-gl-traffic/dist/mapbox-gl-traffic.min.js'></script>
-<link href='http://lukasmartinelli.ch/mapbox-gl-traffic/dist/mapbox-gl-traffic.css' rel='stylesheet' />
-```
-
-```javascript
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/traffic-night-v2',
-    center: [-77.0259, 38.9010],
-    zoom: 9
-});
-map.addControl(new MapboxTraffic());
-```
+- [Mapbox Day Traffic](https://mapbox.github.io/mapbox-gl-traffic/examples/traffic-day.html)
+- [Mapbox Night Traffic](https://mapbox.github.io/mapbox-gl-traffic/examples/traffic-night.html)
 
 ## API
 
