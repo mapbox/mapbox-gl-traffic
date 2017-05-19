@@ -1,4 +1,4 @@
-# Mapbox GL Traffic [![Build Status](https://travis-ci.org/lukasmartinelli/mapbox-gl-traffic.svg?branch=master)](https://travis-ci.org/lukasmartinelli/mapbox-gl-traffic) [![npm](https://img.shields.io/npm/v/mapbox-gl-traffic.svg)](https://www.npmjs.com/package/mapbox-gl-traffic)
+# Mapbox GL Traffic [![Build Status](https://travis-ci.org/mapbox/mapbox-gl-traffic.svg?branch=master)](https://travis-ci.org/mapbox/mapbox-gl-traffic) [![npm](https://img.shields.io/npm/v/mapbox-gl-traffic.svg)](https://www.npmjs.com/package/mapbox-gl-traffic)
 
 Add a traffic toggle control to [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
