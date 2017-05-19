@@ -2,9 +2,9 @@
   "name": "mapbox-gl-traffic",
   "version": "1.0.1",
   "description": "Mapbox GL JS plugin for enabling/disabling traffic",
-  "main": "index.js",
+  "main": "mapbox-gl-traffic.js",
   "scripts": {
-    "test": "eslint lib && eslint index.js",
+    "test": "eslint *.js",
     "docs": "documentation readme index.js --section API"
   },
   "repository": {
