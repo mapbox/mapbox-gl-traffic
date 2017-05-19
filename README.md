@@ -2,7 +2,7 @@
 
 Add a traffic toggle control to [Mapbox GL JS](https://github.com/mapbox/mapbox-gl-js).
 
-[**:globe_with_meridians: Check the demo**](http://lukasmartinelli.ch/mapbox-gl-traffic/)
+[**:globe_with_meridians: Check the demo**](https://mapbox.github.io/mapbox-gl-traffic/)
 
 ![demo](https://raw.githubusercontent.com/lukasmartinelli/mapbox-gl-traffic/master/demo.gif)
 
