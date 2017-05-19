@@ -17,12 +17,12 @@ Make sure to include the CSS and JS files.
 Check [how to use Mapbox GL JS in a module bundler](https://www.mapbox.com/mapbox-gl-js/api/).
 
 ```bash
-npm install --save mapbox-gl mapbox-gl-traffic
+npm install --save mapbox-gl @mapbox/mapbox-gl-traffic
 ```
 
 ```javascript
 const mapboxgl = require('mapbox-gl')
-const MapboxTraffic = require('mapbox-gl-traffic');
+const MapboxTraffic = require('@mapbox/mapbox-gl-traffic');
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/traffic-night-v2',

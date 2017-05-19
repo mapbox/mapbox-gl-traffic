@@ -1,6 +1,6 @@
 {
-  "name": "mapbox-gl-traffic",
-  "version": "1.0.1",
+  "name": "@mapbox/mapbox-gl-traffic",
+  "version": "1.0.2",
   "description": "Mapbox GL JS plugin for enabling/disabling traffic",
   "main": "mapbox-gl-traffic.js",
   "scripts": {
