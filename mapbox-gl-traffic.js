@@ -1,13 +1,12 @@
-var trafficTemplate = {};
-trafficTemplate.tunnel = [
-  {
-    "id": "traffic-tnl-minor-case",
+var trafficTemplate = {
+  "traffic-street-link-bg": {
+    "id": "traffic-street-link-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
     "minzoom": 15,
     "filter": [
       "all",
@@ -19,11 +18,6 @@ trafficTemplate.tunnel = [
       [
         "all",
         [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
           "has",
           "congestion"
         ],
@@ -31,90 +25,91 @@ trafficTemplate.tunnel = [
           "in",
           "class",
           "link",
+          "motorway_link",
           "service",
           "street"
         ]
       ]
     ],
     "layout": {
+      "visibility": "visible",
       "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            11,
-            0.5
+            14,
+            2.5
           ],
           [
-            18,
-            3
-          ],
-          [
-            22,
-            6
+            20,
+            15.5
           ]
         ]
       },
-      "line-color": "hsl(230, 14%, 97%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(145, 95%, 30%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
+          ]
+        ]
+      },
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
-            15,
-            1
+            14,
+            2
           ],
           [
-            18,
-            3.375
-          ],
-          [
-            22,
-            62.5
+            20,
+            18
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
+      "line-opacity": {
+        "base": 1,
         "stops": [
           [
             15,
+            0
+          ],
+          [
+            16,
             1
-          ],
-          [
-            18,
-            2.75
-          ],
-          [
-            22,
-            37.5
           ]
         ]
-      },
-      "line-dasharray": [
-        2,
-        2
-      ]
+      }
     }
   },
-  {
-    "id": "traffic-tnl-major-case",
+  "traffic-secondary-tertiary-bg": {
+    "id": "traffic-secondary-tertiary-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
+    "minzoom": 6,
     "filter": [
       "all",
       [
@@ -125,110 +120,108 @@ trafficTemplate.tunnel = [
       [
         "all",
         [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
           "has",
           "congestion"
         ],
         [
           "in",
           "class",
-          "primary_link",
           "secondary",
           "tertiary"
         ]
       ]
     ],
     "layout": {
+      "visibility": "visible",
       "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            11,
-            0.5
+            9,
+            1.5
           ],
           [
             18,
-            3
+            11
           ],
           [
-            22,
-            6
+            20,
+            16.5
           ]
         ]
       },
-      "line-color": "hsl(230, 14%, 97%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(145, 95%, 30%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
+          ]
+        ]
+      },
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
             10,
-            0.325
+            0.5
           ],
           [
             15,
-            1.875
+            5
           ],
           [
             18,
-            5.5
+            11
           ],
           [
-            22,
-            62.5
+            20,
+            14.5
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
+      "line-opacity": {
+        "base": 1,
         "stops": [
           [
-            10,
-            0.6
+            13,
+            0
           ],
           [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
+            14,
+            1
           ]
         ]
-      },
-      "line-dasharray": [
-        2,
-        2
-      ]
+      }
     }
   },
-  {
-    "id": "traffic-tnl-primary-case",
+  "traffic-primary-bg": {
+    "id": "traffic-primary-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
+    "minzoom": 6,
     "filter": [
       "all",
       [
@@ -244,207 +237,101 @@ trafficTemplate.tunnel = [
           "primary"
         ],
         [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
           "has",
           "congestion"
         ]
       ]
     ],
     "layout": {
+      "visibility": "visible",
       "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            5,
-            1
+            10,
+            0.75
           ],
           [
-            18,
-            3
-          ],
-          [
-            22,
+            15,
             6
+          ],
+          [
+            20,
+            18
           ]
         ]
       },
-      "line-color": "hsl(230, 14%, 97%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(145, 95%, 30%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
+          ]
+        ]
+      },
       "line-offset": {
-        "base": 1.5,
+        "base": 1.2,
         "stops": [
           [
             10,
-            0.5
+            0
+          ],
+          [
+            12,
+            1.5
           ],
           [
             18,
-            8
+            13
           ],
           [
-            22,
-            62.5
+            20,
+            16
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            1
-          ],
-          [
-            18,
-            12
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-dasharray": [
-        2,
-        2
-      ]
-    }
-  },
-  {
-    "id": "traffic-tnl-major-link-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway_link",
-          "trunk_link"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
+      "line-opacity": {
+        "base": 1,
         "stops": [
           [
             11,
-            0.5
+            0
           ],
           [
-            18,
-            3
-          ],
-          [
-            22,
-            6
+            12,
+            1
           ]
         ]
-      },
-      "line-color": "hsl(60, 50%, 86%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.325
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-dasharray": [
-        2,
-        2
-      ]
+      }
     }
   },
-  {
-    "id": "traffic-tnl-motorway-trunk-case",
+  "traffic-trunk-bg": {
+    "id": "traffic-trunk-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
     "minzoom": 6,
     "filter": [
       "all",
@@ -457,166 +344,39 @@ trafficTemplate.tunnel = [
         "all",
         [
           "==",
-          "structure",
-          "tunnel"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
           "class",
-          "motorway",
           "trunk"
+        ],
+        [
+          "has",
+          "congestion"
         ]
       ]
     ],
     "layout": {
+      "visibility": "visible",
       "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            5,
-            1
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": "hsl(60, 50%, 86%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.25
-          ],
-          [
-            10,
-            1
-          ],
-          [
-            15,
-            4.25
-          ],
-          [
-            18,
-            10
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
+            8,
             0.5
           ],
           [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
+            9,
+            2.25
           ],
           [
             18,
-            16
+            13
           ],
           [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-dasharray": [
-        2,
-        2
-      ]
-    }
-  },
-  {
-    "id": "traffic-tnl-major-link",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway_link",
-          "trunk_link"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
+            20,
+            17.5
           ]
         ]
       },
@@ -627,386 +387,54 @@ trafficTemplate.tunnel = [
         "stops": [
           [
             "low",
-            "hsl(145, 53%, 68%)"
+            "hsl(145, 95%, 30%)"
           ],
           [
             "moderate",
-            "hsl(26, 81%, 74%)"
+            "hsl(30, 100%, 42%)"
           ],
           [
             "heavy",
-            "hsl(0, 53%, 68%)"
+            "hsl(355, 100%, 37%)"
           ],
           [
             "severe",
-            "hsl(350, 29%, 50%)"
+            "hsl(355, 70%, 22%)"
           ]
         ]
       },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
-            12,
-            0.625
+            7,
+            0
           ],
           [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-tnl-minor",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 15,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "link",
-          "service",
-          "street"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1.5
-          ],
-          [
-            18,
-            2.75
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 53%, 68%)"
-          ],
-          [
-            "moderate",
-            "hsl(26, 81%, 74%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 53%, 68%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 29%, 50%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
+            9,
             1
           ],
           [
             18,
-            3.375
+            13
           ],
           [
-            22,
-            62.5
+            20,
+            18
           ]
         ]
-      }
+      },
+      "line-opacity": 1
     }
   },
-  {
-    "id": "traffic-tnl-major",
+  "traffic-motorway-bg": {
+    "id": "traffic-motorway-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "primary_link",
-          "secondary",
-          "tertiary"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 53%, 68%)"
-          ],
-          [
-            "moderate",
-            "hsl(26, 81%, 74%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 53%, 68%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 29%, 50%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            12,
-            0.625
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-tnl-primary",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "class",
-          "primary"
-        ],
-        [
-          "==",
-          "structure",
-          "tunnel"
-        ],
-        [
-          "has",
-          "congestion"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            1
-          ],
-          [
-            18,
-            12
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 53%, 68%)"
-          ],
-          [
-            "moderate",
-            "hsl(26, 81%, 74%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 53%, 68%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 29%, 50%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.5
-          ],
-          [
-            18,
-            8
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-tnl-motorway-trunk",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
     "minzoom": 6,
     "filter": [
       "all",
@@ -1019,49 +447,39 @@ trafficTemplate.tunnel = [
         "all",
         [
           "==",
-          "structure",
-          "tunnel"
+          "class",
+          "motorway"
         ],
         [
           "has",
           "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk"
         ]
       ]
     ],
     "layout": {
+      "visibility": "visible",
       "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            5,
+            6,
             0.5
           ],
           [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
+            9,
+            3
           ],
           [
             18,
             16
           ],
           [
-            22,
-            37.5
+            20,
+            20
           ]
         ]
       },
@@ -1072,66 +490,412 @@ trafficTemplate.tunnel = [
         "stops": [
           [
             "low",
-            "hsl(145, 53%, 68%)"
+            "hsl(145, 95%, 30%)"
           ],
           [
             "moderate",
-            "hsl(26, 81%, 74%)"
+            "hsl(30, 100%, 42%)"
           ],
           [
             "heavy",
-            "hsl(0, 53%, 68%)"
+            "hsl(355, 100%, 37%)"
           ],
           [
             "severe",
-            "hsl(350, 29%, 50%)"
+            "hsl(355, 70%, 22%)"
           ]
         ]
       },
-      "line-blur": 0,
       "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
-            5,
-            0.25
+            7,
+            0
           ],
           [
-            10,
-            1
+            9,
+            1.2
           ],
           [
-            15,
-            4.25
+            11,
+            1.2
           ],
           [
             18,
             10
           ],
           [
-            22,
-            62.5
+            20,
+            15.5
+          ]
+        ]
+      }
+    }
+  },
+  "traffic-primary": {
+    "id": "traffic-primary",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-primary-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            10,
+            1
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            20,
+            16
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.2,
+        "stops": [
+          [
+            10,
+            0
+          ],
+          [
+            12,
+            1.5
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            20,
+            16
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  "traffic-secondary-tertiary": {
+    "id": "traffic-secondary-tertiary",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-secondary-tertiary-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            9,
+            0.5
+          ],
+          [
+            18,
+            9
+          ],
+          [
+            20,
+            14
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            10,
+            0.5
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            18,
+            11
+          ],
+          [
+            20,
+            14.5
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  "traffic-street-link": {
+    "id": "traffic-street-link",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-street-link-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            14,
+            1.5
+          ],
+          [
+            20,
+            13.5
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            14,
+            2
+          ],
+          [
+            20,
+            18
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  "traffic-trunk": {
+    "id": "traffic-trunk",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-trunk-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            8,
+            0.75
+          ],
+          [
+            18,
+            11
+          ],
+          [
+            20,
+            15
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            20,
+            18
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  "traffic-motorway": {
+    "id": "traffic-motorway",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-motorway-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            6,
+            0.5
+          ],
+          [
+            9,
+            1.5
+          ],
+          [
+            18,
+            14
+          ],
+          [
+            20,
+            18
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-opacity": 1,
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            1.2
+          ],
+          [
+            11,
+            1.2
+          ],
+          [
+            18,
+            10
+          ],
+          [
+            20,
+            15.5
           ]
         ]
       }
     }
   }
-]
+};
 
-trafficTemplate.road = [
+var trafficLayers = [
   {
-    "id": "traffic-rd-minor-case",
+    "id": "traffic-street-link-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
     "minzoom": 15,
     "filter": [
       "all",
@@ -1143,10 +907,6 @@ trafficTemplate.road = [
       [
         "all",
         [
-          "!has",
-          "structure"
-        ],
-        [
           "has",
           "congestion"
         ],
@@ -1154,86 +914,91 @@ trafficTemplate.road = [
           "in",
           "class",
           "link",
+          "motorway_link",
           "service",
           "street"
         ]
       ]
     ],
     "layout": {
-      "line-cap": "round",
+      "visibility": "visible",
       "line-join": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            11,
-            0.5
+            14,
+            2.5
           ],
           [
-            18,
-            3
-          ],
-          [
-            22,
-            6
+            20,
+            15.5
           ]
         ]
       },
-      "line-color": "hsl(0, 0%, 100%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(145, 95%, 30%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
+          ]
+        ]
+      },
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
-            15,
-            1
+            14,
+            2
           ],
           [
-            18,
-            3.375
-          ],
-          [
-            22,
-            62.5
+            20,
+            18
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
+      "line-opacity": {
+        "base": 1,
         "stops": [
           [
             15,
+            0
+          ],
+          [
+            16,
             1
-          ],
-          [
-            18,
-            2.75
-          ],
-          [
-            22,
-            37.5
           ]
         ]
       }
     }
   },
   {
-    "id": "traffic-rd-major-case",
+    "id": "traffic-secondary-tertiary-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
+    "minzoom": 6,
     "filter": [
       "all",
       [
@@ -1243,10 +1008,6 @@ trafficTemplate.road = [
       ],
       [
         "all",
-        [
-          "!has",
-          "structure"
-        ],
         [
           "has",
           "congestion"
@@ -1254,95 +1015,102 @@ trafficTemplate.road = [
         [
           "in",
           "class",
-          "primary_link",
           "secondary",
           "tertiary"
         ]
       ]
     ],
     "layout": {
-      "line-cap": "round",
+      "visibility": "visible",
       "line-join": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            11,
-            0.5
+            9,
+            1.5
           ],
           [
             18,
-            3
+            11
           ],
           [
-            22,
-            6
+            20,
+            16.5
           ]
         ]
       },
-      "line-color": "hsl(0, 0%, 100%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(145, 95%, 30%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
+          ]
+        ]
+      },
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
             10,
-            0.325
+            0.5
           ],
           [
             15,
-            1.875
+            5
           ],
           [
             18,
-            5.5
+            11
           ],
           [
-            22,
-            62.5
+            20,
+            14.5
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
+      "line-opacity": {
+        "base": 1,
         "stops": [
           [
-            10,
-            0.6
+            13,
+            0
           ],
           [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
+            14,
+            1
           ]
         ]
       }
     }
   },
   {
-    "id": "traffic-rd-primary-case",
+    "id": "traffic-primary-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
+    "minzoom": 6,
     "filter": [
       "all",
       [
@@ -1352,10 +1120,6 @@ trafficTemplate.road = [
       ],
       [
         "all",
-        [
-          "!has",
-          "structure"
-        ],
         [
           "==",
           "class",
@@ -1368,199 +1132,95 @@ trafficTemplate.road = [
       ]
     ],
     "layout": {
-      "line-cap": "round",
+      "visibility": "visible",
       "line-join": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            5,
-            1
+            10,
+            0.75
           ],
           [
-            18,
-            3
-          ],
-          [
-            22,
+            15,
             6
+          ],
+          [
+            20,
+            18
           ]
         ]
       },
-      "line-color": "hsl(0, 0%, 100%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(145, 95%, 30%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
+          ]
+        ]
+      },
       "line-offset": {
-        "base": 1.5,
+        "base": 1.2,
         "stops": [
           [
             10,
-            0.5
+            0
+          ],
+          [
+            12,
+            1.5
           ],
           [
             18,
-            8
+            13
           ],
           [
-            22,
-            62.5
+            20,
+            16
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            1
-          ],
-          [
-            18,
-            12
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-rd-major-link-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "!has",
-          "structure"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway_link",
-          "trunk_link"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
+      "line-opacity": {
+        "base": 1,
         "stops": [
           [
             11,
-            0.5
+            0
           ],
           [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "stops": [
-          [
-            8,
-            "hsl(60, 100%, 98%)"
-          ],
-          [
-            13,
-            "hsl(60, 100%, 88%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.325
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
+            12,
+            1
           ]
         ]
       }
     }
   },
   {
-    "id": "traffic-rd-motorway-trunk-case",
+    "id": "traffic-trunk-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
     "minzoom": 6,
     "filter": [
       "all",
@@ -1571,713 +1231,99 @@ trafficTemplate.road = [
       ],
       [
         "all",
-        [
-          "!has",
-          "structure"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            1
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "stops": [
-          [
-            8,
-            "hsl(60, 100%, 98%)"
-          ],
-          [
-            13,
-            "hsl(60, 100%, 88%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": {
-        "base": 1,
-        "stops": [
-          [
-            12.99,
-            0
-          ],
-          [
-            13,
-            1
-          ]
-        ]
-      },
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.25
-          ],
-          [
-            10,
-            1
-          ],
-          [
-            15,
-            4.25
-          ],
-          [
-            18,
-            10
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.5
-          ],
-          [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
-          ],
-          [
-            18,
-            16
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-rd-major-link",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "!has",
-          "structure"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway_link",
-          "trunk_link"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            12,
-            0.625
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-rd-minor",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 15,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "!has",
-          "structure"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "link",
-          "service",
-          "street"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1.5
-          ],
-          [
-            18,
-            2.75
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1
-          ],
-          [
-            18,
-            3.375
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-rd-major",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "!has",
-          "structure"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "primary_link",
-          "secondary",
-          "tertiary"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            12,
-            0.625
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-rd-primary",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "!has",
-          "structure"
-        ],
         [
           "==",
           "class",
-          "primary"
-        ],
-        [
-          "has",
-          "congestion"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-cap": "round",
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            1
-          ],
-          [
-            18,
-            12
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.5
-          ],
-          [
-            18,
-            8
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-rd-motorway-trunk-case-low",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 6,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "!has",
-          "structure"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
           "trunk"
+        ],
+        [
+          "has",
+          "congestion"
         ]
       ]
     ],
     "layout": {
-      "line-cap": "round",
+      "visibility": "visible",
       "line-join": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
-        "stops": [
-          [
-            5,
-            1
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
         "stops": [
           [
             8,
-            "hsl(60, 100%, 98%)"
+            0.5
           ],
           [
-            13,
-            "hsl(60, 100%, 88%)"
+            9,
+            2.25
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            20,
+            17.5
           ]
         ]
       },
-      "line-blur": 0,
-      "line-opacity": {
+      "line-color": {
         "base": 1,
+        "type": "categorical",
+        "property": "congestion",
         "stops": [
           [
-            13,
-            1
+            "low",
+            "hsl(145, 95%, 30%)"
           ],
           [
-            13.01,
-            0
+            "moderate",
+            "hsl(30, 100%, 42%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 37%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 22%)"
           ]
         ]
       },
-      "line-translate": [
-        0,
-        0
-      ],
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
-            5,
-            0.25
+            7,
+            0
           ],
           [
-            10,
+            9,
             1
           ],
           [
-            15,
-            4.25
-          ],
-          [
             18,
-            10
+            13
           ],
           [
-            22,
-            62.5
+            20,
+            18
           ]
         ]
       },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.5
-          ],
-          [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
-          ],
-          [
-            18,
-            16
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
+      "line-opacity": 1
     }
   },
   {
-    "id": "traffic-rd-motorway-trunk",
+    "id": "traffic-motorway-bg",
     "type": "line",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
     "source": "mapbox://mapbox.mapbox-traffic-v1",
     "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
     "minzoom": 6,
     "filter": [
       "all",
@@ -2289,49 +1335,40 @@ trafficTemplate.road = [
       [
         "all",
         [
-          "!has",
-          "structure"
+          "==",
+          "class",
+          "motorway"
         ],
         [
           "has",
           "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk"
         ]
       ]
     ],
     "layout": {
-      "line-cap": "round",
+      "visibility": "visible",
       "line-join": "round",
-      "visibility": "visible"
+      "line-cap": "round"
     },
     "paint": {
       "line-width": {
         "base": 1.5,
         "stops": [
           [
-            5,
+            6,
             0.5
           ],
           [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
+            9,
+            3
           ],
           [
             18,
             16
           ],
           [
-            22,
-            37.5
+            20,
+            20
           ]
         ]
       },
@@ -2342,50 +1379,396 @@ trafficTemplate.road = [
         "stops": [
           [
             "low",
-            "hsl(145, 55%, 55%)"
+            "hsl(145, 95%, 30%)"
           ],
           [
             "moderate",
-            "hsl(29, 100%, 65%)"
+            "hsl(30, 100%, 42%)"
           ],
           [
             "heavy",
-            "hsl(0, 76%, 59%)"
+            "hsl(355, 100%, 37%)"
           ],
           [
             "severe",
-            "hsl(350, 100%, 30%)"
+            "hsl(355, 70%, 22%)"
           ]
         ]
       },
-      "line-blur": 0,
       "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
       "line-offset": {
         "base": 1.5,
         "stops": [
           [
-            5,
-            0.25
+            7,
+            0
           ],
           [
-            10,
-            1
+            9,
+            1.2
           ],
           [
-            15,
-            4.25
+            11,
+            1.2
           ],
           [
             18,
             10
           ],
           [
-            22,
-            62.5
+            20,
+            15.5
+          ]
+        ]
+      }
+    }
+  },
+  {
+    "id": "traffic-primary",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-primary-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            10,
+            1
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            20,
+            16
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.2,
+        "stops": [
+          [
+            10,
+            0
+          ],
+          [
+            12,
+            1.5
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            20,
+            16
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  {
+    "id": "traffic-secondary-tertiary",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-secondary-tertiary-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            9,
+            0.5
+          ],
+          [
+            18,
+            9
+          ],
+          [
+            20,
+            14
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            10,
+            0.5
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            18,
+            11
+          ],
+          [
+            20,
+            14.5
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  {
+    "id": "traffic-street-link",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-street-link-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            14,
+            1.5
+          ],
+          [
+            20,
+            13.5
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            14,
+            2
+          ],
+          [
+            20,
+            18
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  {
+    "id": "traffic-trunk",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-trunk-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            8,
+            0.75
+          ],
+          [
+            18,
+            11
+          ],
+          [
+            20,
+            15
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            20,
+            18
+          ]
+        ]
+      },
+      "line-opacity": 1
+    }
+  },
+  {
+    "id": "traffic-motorway",
+    "metadata": {
+      "mapbox:group": "4053de47c16e55481b10fd748eaa994c"
+    },
+    "ref": "traffic-motorway-bg",
+    "paint": {
+      "line-width": {
+        "base": 1.5,
+        "stops": [
+          [
+            6,
+            0.5
+          ],
+          [
+            9,
+            1.5
+          ],
+          [
+            18,
+            14
+          ],
+          [
+            20,
+            18
+          ]
+        ]
+      },
+      "line-color": {
+        "base": 1,
+        "type": "categorical",
+        "property": "congestion",
+        "stops": [
+          [
+            "low",
+            "hsl(142, 55%, 50%)"
+          ],
+          [
+            "moderate",
+            "hsl(30, 100%, 55%)"
+          ],
+          [
+            "heavy",
+            "hsl(355, 100%, 50%)"
+          ],
+          [
+            "severe",
+            "hsl(355, 70%, 35%)"
+          ]
+        ]
+      },
+      "line-opacity": 1,
+      "line-offset": {
+        "base": 1.5,
+        "stops": [
+          [
+            7,
+            0
+          ],
+          [
+            9,
+            1.2
+          ],
+          [
+            11,
+            1.2
+          ],
+          [
+            18,
+            10
+          ],
+          [
+            20,
+            15.5
           ]
         ]
       }
@@ -2393,1134 +1776,10 @@ trafficTemplate.road = [
   }
 ];
 
-trafficTemplate.bridge = [
-  {
-    "id": "traffic-brg-minor-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 15,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "link",
-          "service",
-          "street"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            11,
-            0.5
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": "hsl(0, 0%, 100%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1
-          ],
-          [
-            18,
-            3.375
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1
-          ],
-          [
-            18,
-            2.75
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-major-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "primary_link",
-          "secondary",
-          "tertiary"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            11,
-            0.5
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": "hsl(0, 0%, 100%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.325
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-primary-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "class",
-          "primary"
-        ],
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            1
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": "hsl(0, 0%, 100%)",
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.5
-          ],
-          [
-            18,
-            8
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            1
-          ],
-          [
-            18,
-            12
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-major-link-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway_link",
-          "trunk_link"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            11,
-            0.5
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "stops": [
-          [
-            8,
-            "hsl(60, 100%, 98%)"
-          ],
-          [
-            13,
-            "hsl(60, 100%, 88%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.325
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-motorway-trunk-case",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 6,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            1
-          ],
-          [
-            18,
-            3
-          ],
-          [
-            22,
-            6
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "stops": [
-          [
-            8,
-            "hsl(60, 100%, 98%)"
-          ],
-          [
-            13,
-            "hsl(60, 100%, 88%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.25
-          ],
-          [
-            10,
-            1
-          ],
-          [
-            15,
-            4.25
-          ],
-          [
-            18,
-            10
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      },
-      "line-gap-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.5
-          ],
-          [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
-          ],
-          [
-            18,
-            16
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-major-link",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway_link",
-          "trunk_link"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            12,
-            0.625
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-minor",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 15,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "link",
-          "service",
-          "street"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1.5
-          ],
-          [
-            18,
-            2.75
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            15,
-            1
-          ],
-          [
-            18,
-            3.375
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-major",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "primary_link",
-          "secondary",
-          "tertiary"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.6
-          ],
-          [
-            15,
-            2.75
-          ],
-          [
-            18,
-            7
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            12,
-            0.625
-          ],
-          [
-            15,
-            1.875
-          ],
-          [
-            18,
-            5.5
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-primary",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 5,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "class",
-          "primary"
-        ],
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            1
-          ],
-          [
-            18,
-            12
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            10,
-            0.5
-          ],
-          [
-            18,
-            8
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  },
-  {
-    "id": "traffic-brg-motorway-trunk",
-    "type": "line",
-    "source": "mapbox://mapbox.mapbox-traffic-v1",
-    "source-layer": "traffic",
-    "metadata": {
-      "mapbox:group": "7e7a330500e013ce0394bc813f1bdea5"
-    },
-    "minzoom": 6,
-    "filter": [
-      "all",
-      [
-        "==",
-        "$type",
-        "LineString"
-      ],
-      [
-        "all",
-        [
-          "==",
-          "structure",
-          "bridge"
-        ],
-        [
-          "has",
-          "congestion"
-        ],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk"
-        ]
-      ]
-    ],
-    "layout": {
-      "line-join": "round",
-      "line-cap": "round",
-      "visibility": "visible"
-    },
-    "paint": {
-      "line-width": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.5
-          ],
-          [
-            10,
-            1.5
-          ],
-          [
-            15,
-            8
-          ],
-          [
-            18,
-            16
-          ],
-          [
-            22,
-            37.5
-          ]
-        ]
-      },
-      "line-color": {
-        "base": 1,
-        "type": "categorical",
-        "property": "congestion",
-        "stops": [
-          [
-            "low",
-            "hsl(145, 55%, 55%)"
-          ],
-          [
-            "moderate",
-            "hsl(29, 100%, 65%)"
-          ],
-          [
-            "heavy",
-            "hsl(0, 76%, 59%)"
-          ],
-          [
-            "severe",
-            "hsl(350, 100%, 30%)"
-          ]
-        ]
-      },
-      "line-blur": 0,
-      "line-opacity": 1,
-      "line-translate": [
-        0,
-        0
-      ],
-      "line-offset": {
-        "base": 1.5,
-        "stops": [
-          [
-            5,
-            0.25
-          ],
-          [
-            10,
-            1
-          ],
-          [
-            15,
-            4.25
-          ],
-          [
-            18,
-            10
-          ],
-          [
-            22,
-            62.5
-          ]
-        ]
-      }
-    }
-  }
-]
-
-
 function addLayers(style, layers, before) {
   for(var i = 0; i < style.layers.length; i++) {
     var layer = style.layers[i];
-    if (before.indexOf(layer.id) > -1) {
+    if (before === layer.id) {
       var newLayers = style.layers.slice(0, i).concat(layers).concat(style.layers.slice(i));
       return Object.assign({ }, style, {
         layers: newLayers
@@ -3564,8 +1823,8 @@ function MapboxTraffic(options) {
 MapboxTraffic.prototype._hasTraffic = function () {
   var style = this._map.getStyle();
   var trafficSource = this.options.trafficSource;
-  return style.layers.filter(function(layer) {
-    return trafficSource.test(layer.source);
+  return Object.keys(style.sources).filter(function(sourceName) {
+    return trafficSource.test(sourceName);
   }).length > 0;
 }
 
@@ -3580,11 +1839,14 @@ MapboxTraffic.prototype.render = function () {
       type: 'vector',
       url: 'mapbox://mapbox.mapbox-traffic-v1'
     });
+
+    var roadLayers = this._map.getStyle().layers.filter(function(layer) {
+      return layer['source-layer'] === 'road';
+    });
+    var topRoadLayer = roadLayers[roadLayers.length - 1].id;
     var style = this._map.getStyle();
-    style = addLayers(style, trafficTemplate.bridge, ['waterway-label', 'ferry']);
-    style = addLayers(style, trafficTemplate.road, ['tunnel-oneway-arrows-minor', 'bridge-path-bg']);
-    style = addLayers(style, trafficTemplate.tunnel, ['road-level-crossings', 'aerialway']);
-    this._map.setStyle(style);
+    var trafficStyle = addLayers(style, trafficLayers, topRoadLayer);
+    this._map.setStyle(trafficStyle);
   }
 
   if (this.options.showTraffic) {
