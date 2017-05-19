@@ -939,6 +939,9 @@ MapboxTraffic.prototype._hasTraffic = function () {
   }).length > 0;
 };
 
+/**
+ * Toggle visibility of traffic layer.
+ */
 MapboxTraffic.prototype.toggleTraffic = function () {
   this.options.showTraffic = !this.options.showTraffic;
   this.render();
