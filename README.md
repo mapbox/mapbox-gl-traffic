@@ -29,7 +29,9 @@ const map = new mapboxgl.Map({
     center: [-77.0259, 38.9010],
     zoom: 9
 });
-map.addControl(new MapboxTraffic());
+map.on('load', () => {
+    map.addControl(new MapboxTraffic());
+});
 ```
 
 ## Examples

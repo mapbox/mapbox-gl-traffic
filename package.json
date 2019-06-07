@@ -25,15 +25,12 @@
   },
   "homepage": "https://github.com/mapbox/mapbox-gl-traffic#readme",
   "devDependencies": {
-    "browserify": "^16.2.3",
     "documentation": "^11.0.0",
     "eslint": "^2.8.0",
-    "eslint-config-mourner": "^2.0.1",
-    "uglify-js": "^2.4.24",
-    "watchify": "^3.8.0"
+    "eslint-config-mourner": "^2.0.1"
   },
   "peerDependencies": {
-    "mapbox-gl": "^0.29.0"
+    "mapbox-gl": ">=0.29.0 <2.0.0"
   },
   "eslintConfig": {
     "parserOptions": {
